@@ -2,6 +2,14 @@ package com.geoff.game.board;
 
 import java.util.Objects;
 
+/**
+ * drawBoard()
+ * initBoard()
+ * getGrid()
+ * makeMove()
+ * isCellEmpty()
+ */
+
 public class Board {
 
     private String[][] grid;
@@ -40,13 +48,11 @@ public class Board {
         System.out.println();
     }
 
-    public boolean makeMove(int row, int col, String symbol) {
+    public void makeMove(int row, int col, String symbol) {
 
         if (row >= 0 && row < SIZE && col >= 0 && col < SIZE && grid[row][col].equals(EMPTY)) {
             grid[row][col] = symbol;
-            return true;
         }
-        return false;
     }
 
     public String[][] getGrid() {

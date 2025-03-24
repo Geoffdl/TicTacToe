@@ -5,21 +5,25 @@ import com.geoff.game.board.Board;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * PLayerTurn()
+ * getMove()
+ * isValidMove()
+ * getCurrentPlayerSymbol()
+ * switchPlayer()
+ */
 //handles player switching and moves
 
 public class PlayerTurn {
 
-    private Scanner scanner;
+    private final Scanner scanner;
     private boolean startingPlayer;
     private boolean currentPlayerIsOne;
-    private final String player1Symbol = "X";
-    private final String getPlayer2Symbol = "O";
-    private Random random;
 
     public PlayerTurn() {
 
         scanner = new Scanner(System.in);
-        random = new Random();
+        Random random = new Random();
 
         currentPlayerIsOne = random.nextBoolean();
         String startingPlayer = currentPlayerIsOne ? "Player 1 (X)" : "Player 2 (O)";
@@ -41,10 +45,10 @@ public class PlayerTurn {
 
             position = scanner.nextInt();
 
-            if (!isValidMove(position, board)) {
+            if (isValidMove(position, board)) {
                 System.out.println("\nInvalid move! Position already taken or out of range.");
             }
-        } while (!isValidMove(position, board));
+        } while (isValidMove(position, board));
 
         // Convert position 1-9 to row/col
         int row = (position - 1) / 3;
@@ -55,16 +59,18 @@ public class PlayerTurn {
     private boolean isValidMove(int position, Board board) {
 
         if (position < 1 || position > 9) {
-            return false;
+            return true;
         }
         int row = (position - 1) / 3;
         int col = (position - 1) % 3;
 
-        return board.isCellEmpty(row, col);
+        return !board.isCellEmpty(row, col);
 
     }
 
     public String getCurrentPlayerSymbol() {
+        String player1Symbol = "X";
+        String getPlayer2Symbol = "O";
         return currentPlayerIsOne ? player1Symbol : getPlayer2Symbol;
     }
 

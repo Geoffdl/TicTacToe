@@ -2,6 +2,11 @@ package com.geoff.game.logic.rules;
 
 import com.geoff.game.board.Board;
 
+/**
+ * isWon(Board board)
+ * isFull(Board board)
+ */
+
 public class GameRules {
 
     private GameRules() {
@@ -52,23 +57,17 @@ public class GameRules {
         String[][] grid = board.getGrid();
 
 
-        boolean isBoardFull = true;
-
-
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 if (grid[row][col].equals(" ")) {
-                    isBoardFull = false;
                     return false;
                 }
             }
         }
 
 
-        if (isBoardFull) {
-            System.out.println("\nIt's a tie!");
-        }
+        System.out.println("\nIt's a tie!");
 
-        return isBoardFull;
+        return true;
     }
 }
