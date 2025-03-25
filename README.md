@@ -40,7 +40,7 @@ A simple command-line implementation of the classic Tic-tac-toe game written in 
 ## Project Structure
 
 - `TicTacToe.java` - Main
-- - `Game.java` - Game loop and input handling
+- `Game.java` - Game loop and input handling
 - `Board.java` - Board representation and move handling
 - `PlayerTurn.java` - Player management and move input
 - `GameRules.java` - Win and tie condition checking
