@@ -62,3 +62,7 @@ The game includes validation for:
 - Invalid input (non-numeric values)
 - Out-of-range moves (numbers not between 1-9)
 - Already occupied positions
+
+## Planned 
+
+Moving from terminal to UI with Swing integration
